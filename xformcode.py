@@ -35,5 +35,6 @@ subprocess.run(['/opt/conda/bin/jupyter-labhub', '--debug', '-y', '--no-browser'
         JUPYTERHUB_SERVER_NAME='',
         JUPYTERHUB_API_URL='https://jupyterhub.infinstor.com:444/hub/api',
         JUPYTERHUB_ACTIVITY_URL='https://jupyterhub.infinstor.com:444/hub/api/users/' + cognito_username + '/activity',
+        JUPYTERHUB_ACTIVITY_INTERVAL='60',
         JUPYTERHUB_BASE_URL='/',
         JUPYTERHUB_SERVICE_PREFIX='/user/' + cognito_username + '/'))

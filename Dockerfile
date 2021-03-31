@@ -43,7 +43,7 @@ RUN mkdir -p /opt/jupyterhub/etc/jupyterhub
 RUN echo "c.Spawner.default_url = '/lab'" >> /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 RUN mkdir -p /.jupyter
 RUN rm -f /.jupyter/jupyter_server_config.py
-RUN echo 'c.ServerApp.shutdown_no_activity_timeout = 10 * 60' >> /.jupyter/jupyter_server_config.py
+RUN echo 'c.ServerApp.shutdown_no_activity_timeout = 30 * 60' >> /.jupyter/jupyter_server_config.py
 RUN echo 'c.ServerApp.iopub_data_rate_limit = 0' >> /.jupyter/jupyter_server_config.py
 RUN echo 'c.ServerApp.iopub_msg_rate_limit = 0' >> /.jupyter/jupyter_server_config.py
 RUN echo 'c.MappingKernelManager.cull_idle_timeout = 30 * 60' >> /.jupyter/jupyter_server_config.py
