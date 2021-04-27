@@ -50,6 +50,20 @@ RUN echo 'c.MappingKernelManager.cull_idle_timeout = 30 * 60' >> /.jupyter/jupyt
 RUN echo 'c.MappingKernelManager.cull_interval = 1 * 60' >> /.jupyter/jupyter_server_config.py
 RUN echo 'c.MappingKernelManager.cull_connected = True' >> /.jupyter/jupyter_server_config.py
 
+RUN /bin/rm -f /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo '{' > /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo ' "argv": [' >> /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo '  "python",' >> /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo '  "-m",' >> /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo '  "ipykernel_launcher",' >> /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo '  "-f",' >> /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo '  "{connection_file}"' >> /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo ' ],' >> /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo ' "display_name": "Python 3",' >> /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo ' "language": "python",' >> /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo ' "env": {"MLFLOW_TRACKING_URI": "infinstor:///"}' >> /opt/conda/share/jupyter/kernels/python3/kernel.json
+RUN echo '}' >> /opt/conda/share/jupyter/kernels/python3/kernel.json
+
 RUN /opt/conda/bin/jupyter labextension install jupyterlab-infinstor
 
 EXPOSE 8888
