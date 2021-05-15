@@ -8,14 +8,14 @@ service = None
 for x in range(1, len(sys.argv)):
     if (sys.argv[x].startswith('--token')):
         token = sys.argv[x][8:]
-    elif (sys.argv[x].startswith('--service')):
-        service = sys.argv[x][10:]
+    elif (sys.argv[x].startswith('--jupyservice')):
+        service = sys.argv[x][14:]
 
 if (not token):
     raise Exception('insufficient parameters: token necessary')
 
 if (not service):
-    raise Exception('insufficient parameters: service name necessary')
+    raise Exception('insufficient parameters: jupyservice necessary')
 
 cognito_username=os.getenv('COGNITO_USERNAME')
 if (not cognito_username):
