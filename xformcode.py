@@ -30,7 +30,7 @@ if ('MLFLOW_EXPERIMENT_NAME' in cur_env):
     del cur_env['MLFLOW_EXPERIMENT_NAME']
 if ('MLFLOW_RUN_ID' in cur_env):
     del cur_env['MLFLOW_RUN_ID']
-subprocess.run(['/opt/conda/bin/jupyter-labhub', '-y', '--no-browser', '--ip', '0.0.0.0', '--port', '8888', '--allow-root'],
+subprocess.run(['/opt/conda/bin/jupyter-labhub', '--Application.log_level=DEBUG', '-y', '--no-browser', '--ip', '0.0.0.0', '--port', '8888', '--allow-root'],
     env=dict(cur_env,
         JUPYTERHUB_API_TOKEN=token,
         JPY_API_TOKEN=token,
