@@ -32,8 +32,8 @@ if ('MLFLOW_RUN_ID' in cur_env):
     del cur_env['MLFLOW_RUN_ID']
 subprocess.run(['/opt/conda/bin/jupyter-labhub', \
         '--Application.log_level=ERROR', \
-        '--NotebookApp.iopub_data_rate_limit=10000000', \
-        '--NotebookApp.iopub_msg_rate_limit=100000', \
+        '--ServerApp.iopub_data_rate_limit=10000000', \
+        '--ServerApp.iopub_msg_rate_limit=100000', \
         '-y', \
         '--no-browser', \
         '--ip', '0.0.0.0', '--port', '8888', \
